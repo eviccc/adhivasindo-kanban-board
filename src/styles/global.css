@@ -1,0 +1,126 @@
+/* ── Custom properties ───────────────────────────────────────────────────────── */
+:root {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --color-bg:        #f0f2f5;
+  --color-surface:   #ffffff;
+  --color-border:    #e5e7eb;
+  --color-text:      #111827;
+  --color-muted:     #6b7280;
+  --color-accent:    #4F86F7;
+  --color-accent-h:  #3b6fd4;
+
+  --label-feature:   #dbeafe;
+  --label-feature-t: #1d4ed8;
+  --label-bug:       #fee2e2;
+  --label-bug-t:     #dc2626;
+  --label-issue:     #fef3c7;
+  --label-issue-t:   #d97706;
+  --label-undefined: #f3f4f6;
+  --label-undefined-t: #374151;
+
+  --prio-high:   #ef4444;
+  --prio-medium: #f59e0b;
+  --prio-low:    #6b7280;
+
+  --radius-card: 12px;
+  --shadow-card: 0 2px 8px rgba(0,0,0,.07), 0 0 1px rgba(0,0,0,.05);
+  --shadow-hover: 0 8px 24px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.05);
+  --transition: 200ms cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body, ion-app {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  --ion-background-color: var(--color-bg);
+  --ion-font-family: var(--font-sans);
+}
+
+ion-content {
+  --background: var(--color-bg);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ── Labels ─────────────────────────────────────────────────────────────────── */
+.label-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+.label-Feature   { background: var(--label-feature);   color: var(--label-feature-t); }
+.label-Bug       { background: var(--label-bug);        color: var(--label-bug-t); }
+.label-Issue     { background: var(--label-issue);      color: var(--label-issue-t); }
+.label-Undefined { background: var(--label-undefined);  color: var(--label-undefined-t); }
+
+/* ── Priority dot ────────────────────────────────────────────────────────────── */
+.prio-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.prio-High   { background: var(--prio-high); }
+.prio-Medium { background: var(--prio-medium); }
+.prio-Low    { background: var(--prio-low); }
+
+/* ── Avatar group ────────────────────────────────────────────────────────────── */
+.avatar-group { display: flex; align-items: center; }
+.avatar-group .avatar { 
+  width: 28px; height: 28px; border-radius: 50%; 
+  border: 2px solid white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: white;
+  margin-left: -6px; flex-shrink: 0;
+  text-transform: uppercase;
+}
+.avatar-group .avatar:first-child { margin-left: 0; }
+.avatar-group .avatar-more {
+  background: #e5e7eb; color: #374151; font-size: 10px; font-weight: 600;
+}
+
+/* ── Utility ─────────────────────────────────────────────────────────────────── */
+.flex    { display: flex; }
+.items-center { align-items: center; }
+.gap-1   { gap: 4px; }
+.gap-2   { gap: 8px; }
+.gap-3   { gap: 12px; }
+.text-sm { font-size: 13px; }
+.text-xs { font-size: 11px; }
+.text-muted { color: var(--color-muted); }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+
+/* ── Toast ───────────────────────────────────────────────────────────────────── */
+ion-toast.kanban-toast {
+  --border-radius: 10px;
+  --box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  font-family: var(--font-sans);
+}
+
+/* ── Modal ───────────────────────────────────────────────────────────────────── */
+ion-modal.task-modal {
+  --border-radius: 16px;
+  --box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+ion-modal.task-modal ion-content {
+  --background: #ffffff;
+}
+
+/* ── Drag ghost ──────────────────────────────────────────────────────────────── */
+.sortable-ghost { opacity: .4; }
+.sortable-chosen { cursor: grabbing; }
+.task-card-drag { cursor: grab; }
